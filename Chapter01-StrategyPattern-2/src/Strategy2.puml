@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Weapon {
+
+   + attack() : void
+}
+
+Weapon <|-- Knife
+class Knife{
+    + attack : void
+
+}
+
+Weapon <|-- Sword
+class Sword {
+    + attack : void
+}
+
+Weapon <|-- Ax
+class Ax {
+    + attack : void
+}
+
+GameCharacter *-- Weapon
+Class GameCharacter
+{
+    - weapon : Weapon
+    + setWeapon() : void
+}
+
+
+
+
+@enduml

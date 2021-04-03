@@ -8,6 +8,7 @@ public class GameCharacter {
 
 	public int attact() {
 
+		// delegate
 		return weapon.doAttact();
 	}
 
