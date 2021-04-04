@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class ClientP
+ClientP -- AdapterP
+
+interface AdapterP {
+    targetMethod1() : void
+    targetMethod2() : void
+}
+
+AdapterP <|-- AdapterImplP
+class AdapterImplP{
+    adaptee : AdapteeP
+    targetMethod1() : void
+    targetMethod2() : void
+}
+
+AdapterImplP *-- AdapteeP
+
+class AdapteeP {
+    + operation1() : void
+    + operation2() : void
+    + operation3() : void
+
+}
+
+
+interface Adapter {
+	+  twiceOf(Float num) : Double;
+	+ Double halfOf(Float num) : Double;
+
+}
+
+Adapter <|-- AdapterImpl
+
+class AdapterImpl {
+    + math : Math
+	+  twiceOf(Float num) : Double;
+	+ Double halfOf(Float num) : Double;
+}
+AdapterImpl *-- Math
+
+class Math {
+    twoTime (Double) : Double
+    half (Double) : Double
+}
+
+class Client
+Client *-- Adapter
+@enduml
