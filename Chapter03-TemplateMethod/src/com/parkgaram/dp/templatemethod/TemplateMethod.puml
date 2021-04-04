@@ -1,0 +1,76 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class AbstractClass {
+    - operation1() : void
+    - operation2() : void
+    - operation3() : void
+    + templateMethod() : void
+}
+
+AbstractClass -- templateMethod
+class templateMethod
+{
+        - operation1() : void
+        - operation2() : void
+        - operation3() : void
+}
+
+
+AbstractClass <|-- ConcreteClass
+
+class ConcreteClass {
+    - operation1() : void
+    - operation2() : void
+    - operation3() : void
+
+}
+
+
+abstract class AbstConnectHelper{
+# {abstract} doSecurity(String string):String
+# {abstract} authentication(String id,String password):boolean
+# {abstract} authorization(String userName):int)
+# {abstract} connection(String info):String
++ requestConnection(String str):String
+}
+
+AbstConnectHelper <|-- ConcreteConnectHelper
+class ConcreteConnectHelper
+{
+    # doSecurity(String string):String
+    # authentication(String id,String password):boolean
+    # authorization(String userName):int)
+    # connection(String info):String
+}
+
+AbstConnectHelper *-- Application
+class Application
+{
+}
+
+'요구 사항
+'
+'· 신작 게임의 접속을 구현해주세요
+'
+'requestConnection(String str):String
+'
+'· 유저가 게임 접속시 다음을 고려해야합니다.
+'
+'· 보안 과정 보안 관련 부분을 처리합니다.
+'
+'· doSecurity(String string):String
+'
+'인증 과정 : user name과 password가 일치하는지 확인합니다.
+'
+'. authentication(String id,String password):boolean
+'
+'권한 과정 : 접속자가 유료 회원인지 무료회원인지 게임 마스터 인지 확인합니다.
+'
+'. authorization(String userName):int)
+'
+'. 접속 과정 접속자에게 커넥션을 정보를 넘겨줍니다.
+'
+'. connection(String info):String
+
+@enduml

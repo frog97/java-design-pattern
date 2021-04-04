@@ -2,6 +2,7 @@ package com.parkgaram.dp.templatemethod;
 
 public abstract class AbstConnectHelper {
 
+	// algorithm의 단계를 외부에 노출 시키지 않기 위해 protected로.
 	abstract protected String doSecurity(String info);
 
 	abstract protected String authentication(String id, String password);
@@ -37,6 +38,8 @@ public abstract class AbstConnectHelper {
 		case 2:// 게임 마스터
 			break;
 		case 3:// 접속 권한 없음
+			break;
+		case 4: // shut down.
 			break;
 		default:
 			break;
