@@ -1,6 +1,6 @@
 package com.parkgaram.dp.templatecreator.fw;
 
-public abstract class Item {
+public interface Item {
 
 	public abstract void use();
 

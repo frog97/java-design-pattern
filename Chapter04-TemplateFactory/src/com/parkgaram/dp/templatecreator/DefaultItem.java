@@ -2,7 +2,7 @@ package com.parkgaram.dp.templatecreator;
 
 import com.parkgaram.dp.templatecreator.fw.Item;
 
-public class DefaultItem extends Item {
+public class DefaultItem implements Item {
 
 	private String itemName;
 	

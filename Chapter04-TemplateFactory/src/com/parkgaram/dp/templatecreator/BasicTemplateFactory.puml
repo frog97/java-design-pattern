@@ -1,0 +1,34 @@
+@startuml
+
+Class Creator
+{
+    + create() : Item
+    # op01(): void
+    # op02(): void
+    # createProduct() : Item
+}
+
+Creator -- Product
+
+interface Product
+{
+    +use() : void
+}
+
+Product <|--- DefaultProduct
+
+Class DefaultProduct
+{
+    + use() : void
+}
+
+Creator <|-- DefaultProductCreator
+Class DefaultProductCreator
+{
+    # op01(): void
+    # op02(): void
+    # createProduct() : Item
+}
+
+
+@endtuml

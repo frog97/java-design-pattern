@@ -6,8 +6,18 @@ import com.parkgaram.dp.templatecreator.fw.Item;
 public class Application {
 
 	public static void main(String[] args) {
-		
-		Creator creator = new DefaultItemCreator();
+
+		Creator creator;
+		Item item;
+		creator= new HpCreator();
+		item = creator.create("");
+		item.use();
+
+		creator = new MpCreator();
+		item = creator.create("");
+		item.use();
+
+		creator = new DefaultItemCreator();
 
 		Item item1 = creator.create("나무칼");
 		Item item2 = creator.create("나무방패");
