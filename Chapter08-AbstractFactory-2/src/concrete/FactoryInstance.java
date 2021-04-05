@@ -8,13 +8,13 @@ public class FactoryInstance {
 
 	public static GuiFac getGuiFac() {
 
-		switch (1) {
+		switch (getOsCode()) {
 		case 0:
-			return new MacGutFac();
+			return new MacGuiFac();
 		case 1:
 			return new LinuxGuiFac();
 		case 2:
-			return new WinGutFac();
+			return new WinGuiFac();
 		}
 		return null;
 	}
@@ -22,8 +22,12 @@ public class FactoryInstance {
 	private static int getOsCode() {
 		if (System.getProperty("os.name").equals("Mac OS X")) {
 			return 0;
+		} else if (System.getProperty("os.name").equals("Linux"))
+		{
+			return 1;
 		}
-		return 1;
+		return 2;
+
 	}
 
 }
@@ -71,7 +75,7 @@ class MacButton implements Button {
 
 }
 
-class MacGutFac implements GuiFac {
+class MacGuiFac implements GuiFac {
 
 	@Override
 	public Button createButton() {
@@ -103,7 +107,7 @@ class WinButton implements Button {
 
 }
 
-class WinGutFac implements GuiFac {
+class WinGuiFac implements GuiFac {
 
 	@Override
 	public Button createButton() {
