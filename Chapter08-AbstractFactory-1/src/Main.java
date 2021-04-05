@@ -9,7 +9,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 		BikeFactory factory = new GtBikeFactory();
-		
+		factory = new SamFactory();
+
 		Body body = factory.createBody();
 		Wheel wheel = factory.creatWheel();
 		
