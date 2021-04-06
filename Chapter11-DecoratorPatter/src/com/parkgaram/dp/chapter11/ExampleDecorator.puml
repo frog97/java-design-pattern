@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+interface IBeverage {
+    + getTotalPrice() : int
+}
+
+class Base
+{
+    + getTotalPrice() : int
+}
+
+class AbstAdding
+{
+    - component : IBeverage
+    + getTotalPrice() : int
+}
+class Espresso
+{
+    - espressoCount : int
+    - getAddPrice():int
+    + getTotalPrice() : int
+}
+
+class Milk
+{
+    + getTotalPrice() : int
+}
+
+AbstAdding *--> IBeverage : has
+IBeverage <|-- AbstAdding : implements (equating)
+IBeverage <|-- Base : implements (realization)
+AbstAdding <|-- Espresso : implements (generalization)
+AbstAdding <|-- Milk : implements (generalization)
+
+@enduml

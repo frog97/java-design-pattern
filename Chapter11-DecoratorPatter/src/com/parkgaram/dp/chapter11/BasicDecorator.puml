@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+interface Component {
+    + method(type) : type
+}
+
+class ConcreteComponent
+{
+    + method(type) : type
+}
+
+class Decorator
+{
+    - component : Component
+    + method(type) : type
+}
+class ConcreteDecorator
+{
+    - decoratorState : type
+    - addedMethod(type):type
+    + method(type) : type
+}
+
+
+Decorator *--> Component : has
+Component <|-- Decorator : implements (equating)
+Component <|-- ConcreteComponent : implements (realization)
+Decorator <|-- ConcreteDecorator : implements (generalization)
+
+@enduml
