@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Component {
+    ' example : component
+    + operation()
+}
+
+class Leaf {
+    ' example : File
+    +operation()
+}
+
+class Composite
+{
+    ' example : Folder
+    + operation()
+    + add()
+    + remove()
+    + getChild()
+}
+
+Component <|-- Composite
+Component <--- Leaf
+
+Composite "1 child"*-- "0..* parent" Component
+@enduml

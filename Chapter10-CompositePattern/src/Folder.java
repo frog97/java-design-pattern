@@ -13,7 +13,7 @@ public class Folder extends Component {
 		return children.add(component);
 	}
 	
-	public boolean removeComponet(Component component){
+	public boolean removeComponent(Component component){
 		return children.remove(component);
 	}
 	
