@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Observer {
+    + update(Target) : Object
+}
+
+class Target
+{
+   + setObserver(Observer):void
+   + notify() : Object
+}
+
+class ConcreteObserver
+{
+    +update(Target): Object
+}
+
+Observer <-- Target : update
+Observer <|-- ConcreteObserver
+
+
+@enduml
