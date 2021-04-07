@@ -9,7 +9,7 @@ public class Application {
 		Armor armorA = new Armor() {
 
 			@Override
-			protected void proccess(Attack attack) {
+			protected void process(Attack attack) {
 				int amount = attack.getAmount();
 				amount *= 0.8;
 				attack.setAmount(amount);
@@ -19,7 +19,7 @@ public class Application {
 		Armor armorB = new Armor() {
 			
 			@Override
-			protected void proccess(Attack attack) {
+			protected void process(Attack attack) {
 				int amount = attack.getAmount();
 				amount -= 10;
 				if(amount < 0 )
@@ -27,17 +27,17 @@ public class Application {
 				attack.setAmount(amount);
 			}
 		};
+		// point 중요.. 동적으로 책임 사슬 추가 가능.
+		armorA.setNextDefense(armorB);
 		
-		armorA.setNextArmor(armorB);
-		
-		armorA.depense(attack);
+		armorA.defense(attack);
 		
 		System.out.println(attack.getAmount());
 		
-		armorA.setNextArmor(new Armor() {
+		armorA.setNextDefense(new Armor() {
 			
 			@Override
-			protected void proccess(Attack attack) {
+			protected void process(Attack attack) {
 				int amount = attack.getAmount();
 				amount -= 50;
 				if(amount < 0 )
@@ -48,7 +48,7 @@ public class Application {
 		
 		attack.setAmount(100);
 
-		armorA.depense(attack);
+		armorA.defense(attack);
 		
 		System.out.println(attack.getAmount());
 	}
