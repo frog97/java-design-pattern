@@ -8,7 +8,7 @@ public class Originator {
 		return new Memento(state);
 	}
 	
-	public void restoreMement(Memento memento) {
+	public void restoreMemento(Memento memento) {
 		this.state = memento.getState();
 	}
 	
