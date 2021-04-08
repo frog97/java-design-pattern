@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Mediator
+{
+    - colleagues : List<Colleague>
+    + addColleague(Colleague) : void
+    + {abstract} mediate (data) : void
+}
+
+abstract class Colleague
+{
+    - mediator : Mediator
+    - registerMediate(mediator) : void
+    + send(data): void
+    + {abstract} handle(data) : void
+}
+
+class ConcreteMediator {
+    +mediate(data) : void
+}
+
+class ConcreteColleague1
+{
+    + handle(data) : void
+}
+
+class ConcreteColleague2
+{
+    + handle(data) : void
+}
+
+Mediator <|-- ConcreteMediator
+Colleague <|-- ConcreteColleague1
+Colleague <|-- ConcreteColleague2
+
+Mediator --> Colleague : mediate
+Colleague --> Mediator : send
+
+
+
+@enduml
