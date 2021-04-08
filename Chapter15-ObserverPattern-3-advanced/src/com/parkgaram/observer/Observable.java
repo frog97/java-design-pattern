@@ -2,6 +2,7 @@ package com.parkgaram.observer;
 
 import java.util.Vector;
 
+// java.util에 있는 observable을 그냥 카피해서 붙이고, 제네틱하게 만들어 줌.
 public class Observable<T> {
 	
     private boolean changed = false;
@@ -155,7 +156,7 @@ public class Observable<T> {
     public synchronized int countObservers() {
         return obs.size();
     }
-    
+    //제네릭에 observer가 없어서.... 선언해주고  java.util.Observer를 그냥 복사.
     public interface Observer<T> {
         /**
          * This method is called whenever the observed object is changed. An
